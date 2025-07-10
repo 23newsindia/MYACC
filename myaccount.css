@@ -1,0 +1,2564 @@
+
+/* ==============================================
+   Base Styles & Reset - Mobile First Design
+   ============================================== */
+
+/* Base font and colors - Purple theme */
+:root {
+  --primary-color: #7c29d8;
+  --primary-light: rgba(124, 41, 216, 0.1);
+  --primary-dark: #5a1f9e;
+  --text-color: #212121;
+  --text-light: #717171;
+  --text-white: #ffffff;
+  --border-color: #E8E8E8;
+  --bg-light: #F5F5F5;
+  --bg-white: #ffffff;
+  --success-color: #009B19;
+  --warning-color: #D97706;
+  --error-color: #DC3545;
+  --font-global: "PoppinsCustom", "RobotoCustom", sans-serif;
+  --shadow-light: 0 2px 10px rgba(0,0,0,0.05);
+  --shadow-medium: 0 4px 20px rgba(0,0,0,0.1);
+  --border-radius: 12px;
+  --border-radius-small: 8px;
+}
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: var(--font-global);
+  vertical-align: baseline;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1;
+  font-size: 14px;
+  background: rgba(236, 236, 236, 1);
+  min-height: 100vh;
+  font-family: var(--font-global);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  font-family: var(--font-global);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.order-desktop {
+  background: rgba(236, 236, 236, 1);
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-global);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1%;
+  width: 100%;
+}
+
+/* Hide default WooCommerce content only for dashboard */
+.woocommerce-MyAccount-content:not(.woocommerce-account-content),
+.woocommerce-account .woocommerce h2:not(.woocommerce-account-content h2),
+.woocommerce-account .entry-header:not(.woocommerce-account-content .entry-header),
+.woocommerce-account .entry-title:not(.woocommerce-account-content .entry-title) {
+  display: none !important;
+}
+
+.account-nav.account-user {
+  display: none;
+}
+
+/* Remove default list styles */
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Image responsiveness */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==============================================
+   Mobile First Account Layout
+   ============================================== */
+
+.my-account {
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Main account wrapper */
+.myaccount-order {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ==============================================
+   Mobile Account Profile Section - Dashboard
+   ============================================== */
+
+.myaccountmainmobile {
+  background: var(--bg-white);
+  width: 100%;
+  min-height: 100vh;
+}
+
+.myaccountmobile .profile {
+  text-align: center;
+  padding: 20px;
+  color: #000;
+  position: relative;
+  border-bottom: 1px solid rgba(245, 245, 245, 1);
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.15);
+}
+
+.edit-profile {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.edit-profile img {
+  width: 16px;
+  height: 16px;
+}
+
+.profile .snipcss0-0-0-1 p,
+.profile .user-avatar {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  border: 1px solid rgba(116, 116, 116, 1);
+  padding: 4%;
+  font-size: 46px;
+  text-transform: capitalize;
+  border-radius: 50%;
+  text-align: center;
+  background: rgba(229, 229, 229, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile h2 {
+  margin: 10px 0 8px;
+  font-size: 18px;
+  color: #5f5f5f;
+  font-weight: 500;
+}
+
+.profile .info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
+.profile .info p {
+  margin: 0;
+  color: #5f5f5f;
+  font-size: 14px;
+}
+
+.seprator {
+  border-left: 1px solid;
+  width: 5px;
+  color: #5f5f5f;
+  height: 18px;
+}
+
+/* ==============================================
+   Mobile Navigation Tabs - Dashboard
+   ============================================== */
+
+/* Navigation styles moved to separate files:
+   - nav-base.css
+   - nav-hover-effects.css  
+   - nav-animations.css
+   - nav-responsive.css
+   - nav-special-effects.css
+   
+   NEW: Complete navigation styling now in woocommerce-nav-styles.css
+   This includes all hover effects, animations, and responsive design.
+*/
+
+/* ==============================================
+   WooCommerce Account Navigation - Enhanced Hover Effects
+   ============================================== */
+
+/* CSS Variables for navigation styling */
+:root {
+  --nav-primary-color: #7c29d8;
+  --nav-primary-light: rgba(124, 41, 216, 0.1);
+  --nav-primary-dark: #5a1f9e;
+  --nav-transition: all 0.3s cubic-bezier(0.32, 0.74, 0.57, 1);
+  --nav-shadow-hover: 0 8px 25px rgba(124, 41, 216, 0.15);
+  --nav-shadow-active: 0 4px 15px rgba(124, 41, 216, 0.2);
+}
+
+/* Base Navigation Container */
+.myaccountnavigationtab {
+  margin-top: 20px;
+  padding: 0 15px;
+  position: relative;
+}
+
+.myaccountnavigationtab .container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.myacctab {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Navigation Item Base Styles */
+.myaccounttabs {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  transition: var(--nav-transition);
+  box-shadow: var(--shadow-light);
+}
+
+.myaccounttabs a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  z-index: 2;
+}
+
+.tabmain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  position: relative;
+  transition: var(--nav-transition);
+}
+
+.svgtext {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.svgtext img {
+  width: 24px;
+  height: 24px;
+  transition: var(--nav-transition);
+  filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(95%);
+}
+
+.tab-text-myaccount {
+  color: var(--text-color);
+  margin: 0;
+}
+
+.tab-text-myaccount strong {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 15px;
+  transition: var(--nav-transition);
+  letter-spacing: 0.3px;
+  display: block;
+  margin: 0;
+}
+
+.icondown {
+  transition: var(--nav-transition);
+}
+
+.icondown img {
+  width: 18px;
+  height: 18px;
+  transition: var(--nav-transition);
+  filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(95%);
+}
+
+/* ==============================================
+   HOVER EFFECTS - The Magic Happens Here!
+   ============================================== */
+
+.myaccounttabs:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    var(--nav-shadow-hover),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--nav-primary-color);
+}
+
+.myaccounttabs:hover .svgtext img {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(96%) saturate(2028%) hue-rotate(266deg) brightness(91%) contrast(88%);
+  transform: scale(1.1);
+}
+
+.myaccounttabs:hover .tab-text-myaccount strong {
+  color: var(--nav-primary-color);
+  transform: translateX(2px);
+}
+
+.myaccounttabs:hover .icondown {
+  transform: translateX(4px);
+}
+
+.myaccounttabs:hover .icondown img {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(96%) saturate(2028%) hue-rotate(266deg) brightness(91%) contrast(88%);
+}
+
+/* ==============================================
+   ACTIVE STATE STYLING
+   ============================================== */
+
+.myaccounttabs.is-active,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--dashboard.is-active,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--orders.is-active,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--downloads.is-active,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--edit-address.is-active,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--edit-account.is-active {
+  background: linear-gradient(135deg, var(--nav-primary-light) 0%, var(--bg-white) 100%);
+  border-color: var(--nav-primary-color);
+  box-shadow: 
+    var(--nav-shadow-active),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.myaccounttabs.is-active .svgtext img,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--dashboard.is-active .svgtext img,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--orders.is-active .svgtext img,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--downloads.is-active .svgtext img,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--edit-address.is-active .svgtext img,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--edit-account.is-active .svgtext img {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(96%) saturate(2028%) hue-rotate(266deg) brightness(91%) contrast(88%);
+}
+
+.myaccounttabs.is-active .tab-text-myaccount strong,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--dashboard.is-active .tab-text-myaccount strong,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--orders.is-active .tab-text-myaccount strong,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--downloads.is-active .tab-text-myaccount strong,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--edit-address.is-active .tab-text-myaccount strong,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--edit-account.is-active .tab-text-myaccount strong {
+  color: var(--nav-primary-color);
+  font-weight: 600;
+}
+
+.myaccounttabs.is-active .icondown img,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--dashboard.is-active .icondown img,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--orders.is-active .icondown img,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--downloads.is-active .icondown img,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--edit-address.is-active .icondown img,
+.myaccounttabs.woocommerce-MyAccount-navigation-link--edit-account.is-active .icondown img {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(96%) saturate(2028%) hue-rotate(266deg) brightness(91%) contrast(88%);
+}
+
+/* ==============================================
+   ADVANCED ANIMATIONS & EFFECTS
+   ============================================== */
+
+/* Ripple effect on click */
+.myaccounttabs::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, var(--nav-primary-color) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.6s cubic-bezier(0.32, 0.74, 0.57, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.myaccounttabs:active::before {
+  opacity: 0.1;
+  transform: scale(1);
+  transition: all 0.3s cubic-bezier(0.32, 0.74, 0.57, 1);
+}
+
+/* Shimmer effect on hover */
+.myaccounttabs::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transition: left 0.6s cubic-bezier(0.32, 0.74, 0.57, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.myaccounttabs:hover::after {
+  left: 100%;
+}
+
+/* Staggered animation for list items */
+.myacctab .myaccounttabs {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.6s cubic-bezier(0.32, 0.74, 0.57, 1) forwards;
+}
+
+.myacctab .myaccounttabs:nth-child(1) { animation-delay: 0.1s; }
+.myacctab .myaccounttabs:nth-child(2) { animation-delay: 0.2s; }
+.myacctab .myaccounttabs:nth-child(3) { animation-delay: 0.3s; }
+.myacctab .myaccounttabs:nth-child(4) { animation-delay: 0.4s; }
+.myacctab .myaccounttabs:nth-child(5) { animation-delay: 0.5s; }
+.myacctab .myaccounttabs:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation for active item */
+
+
+@keyframes gentlePulse {
+  0%, 100% {
+    box-shadow: 
+      var(--nav-shadow-active),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 
+      0 6px 20px rgba(124, 41, 216, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* ==============================================
+   FOCUS STATES FOR ACCESSIBILITY
+   ============================================== */
+
+.myaccounttabs a:focus {
+  outline: none;
+}
+
+.myaccounttabs a:focus-visible {
+  outline: 2px solid var(--nav-primary-color);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+/* ==============================================
+   RESPONSIVE NAVIGATION ADJUSTMENTS
+   ============================================== */
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .myaccountnavigationtab {
+    padding: 0 12px;
+    margin-top: 15px;
+  }
+
+  .myacctab {
+    gap: 10px;
+  }
+
+  .tabmain {
+    padding: 34px 18px;
+  }
+
+  .svgtext {
+    gap: 14px;
+  }
+
+  .svgtext img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .tab-text-myaccount strong {
+    font-size: 14px;
+  }
+
+  .icondown img {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Reduce hover effects on mobile for better performance */
+  .myaccounttabs:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Disable shimmer effect on mobile */
+  .myaccounttabs::after {
+    display: none;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1025px) {
+  .myaccountnavigationtab {
+    padding: 0 20px;
+  }
+
+  .myacctab {
+    gap: 15px;
+  }
+
+  .tabmain {
+    padding: 22px 24px;
+  }
+
+  .svgtext {
+    gap: 18px;
+  }
+
+  .svgtext img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .tab-text-myaccount strong {
+    font-size: 16px;
+  }
+
+  .icondown img {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Enhanced hover effects for desktop */
+  .myaccounttabs:hover {
+    transform: translateY(-4px);
+    border-color: var(--nav-primary-color);
+    box-shadow: 
+      var(--nav-shadow-hover),
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(124, 41, 216, 0.2);
+  }
+}
+
+/* ==============================================
+   REDUCED MOTION SUPPORT
+   ============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .myaccounttabs,
+  .svgtext img,
+  .tab-text-myaccount strong,
+  .icondown,
+  .icondown img {
+    transition: none;
+  }
+
+  .myaccounttabs::before,
+  .myaccounttabs::after {
+    display: none;
+  }
+
+  .myacctab .myaccounttabs {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .myaccounttabs.is-active {
+    animation: none;
+  }
+
+  .myaccounttabs:hover {
+    transform: none;
+  }
+}
+
+/* ==============================================
+   Left sidebar - Desktop/Mobile Toggle
+   ============================================== */
+
+.leftside-my-account {
+  width: 100%;
+  background: var(--bg-white);
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+  display: flex;
+  width: 100%;
+  padding: 18px 20px;
+  background: var(--primary-color);
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-white);
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  background: var(--primary-dark);
+}
+
+.mobile-menu-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* Mobile menu overlay - Fixed */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* User profile section - Hidden by default on mobile */
+.userprofileleft {
+  display: none;
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-white) 100%);
+}
+
+/* Navigation menu - Hidden by default on mobile */
+.leftside-my-account .myaccountnavigationtab {
+  display: none;
+  padding: 20px;
+}
+
+/* Show when mobile menu is open */
+.mobile-menu-open .userprofileleft,
+.mobile-menu-open .myaccountnavigationtab {
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile menu open state */
+.mobile-menu-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--bg-white);
+}
+
+/* Prevent body scroll when menu is open */
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+/* ==============================================
+   WooCommerce Content Wrapper - MOBILE FIRST
+   ============================================== */
+
+.woocommerce-content-wrapper {
+  background: var(--bg-white);
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+}
+
+.woocommerce-account-content {
+  padding: 0;
+  background: var(--bg-white);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ==============================================
+   MOBILE ACCOUNT PAGES STYLING - COMPLETELY FIXED
+   ============================================== */
+
+/* Top heading for all WooCommerce pages - MOBILE */
+.usermyaccaddress {
+  width: 100%;
+  background: var(--bg-white);
+}
+
+.top-heading-main {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 15px;
+  align-items: center;
+  border-bottom: 1px solid rgba(231, 231, 231, 1);
+  background: var(--bg-white);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.top-heading-main a {
+  line-height: 0px;
+  flex-shrink: 0;
+}
+
+.top-heading-main a img {
+  width: 24px;
+  height: 24px;
+}
+
+.heading-top {
+  text-align: center;
+  flex: 1;
+  color: #212121;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* MOBILE FORM STYLING - COMPLETELY REDESIGNED */
+.woocommerce-account-content .woocommerce-form,
+.woocommerce-account-content .woocommerce-address-fields,
+.woocommerce-account-content .woocommerce-EditAccountForm {
+  background: var(--bg-white);
+  padding: 20px 15px;
+  border-radius: 0;
+  margin-bottom: 0;
+  border: none;
+  box-shadow: none;
+  width: 100%;
+}
+
+/* Mobile form rows */
+.woocommerce-account-content .form-row {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Mobile labels */
+.woocommerce-account-content label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.woocommerce-account-content .required {
+  color: var(--error-color);
+  font-weight: bold;
+}
+
+/* Mobile inputs - ENHANCED STYLING */
+.woocommerce-account-content input[type="text"],
+.woocommerce-account-content input[type="email"],
+.woocommerce-account-content input[type="password"],
+.woocommerce-account-content input[type="tel"],
+.woocommerce-account-content select,
+.woocommerce-account-content textarea {
+  width: 100%;
+  padding: 15px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  font-size: 16px; /* Prevents zoom on iOS */
+  font-family: var(--font-global);
+  transition: all 0.3s ease;
+  background: var(--bg-white);
+  color: var(--text-color);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.woocommerce-account-content input:focus,
+.woocommerce-account-content select:focus,
+.woocommerce-account-content textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-light);
+  transform: translateY(-2px);
+}
+
+/* Mobile buttons - ENHANCED */
+.woocommerce-account-content .button,
+.woocommerce-account-content button {
+  background: var(--primary-color);
+  color: var(--text-white);
+  padding: 15px 24px;
+  border: none;
+  border-radius: var(--border-radius-small);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-global);
+  width: 100%;
+  margin-top: 10px;
+}
+
+.woocommerce-account-content .button:hover,
+.woocommerce-account-content button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 41, 216, 0.3);
+}
+
+/* Mobile password fieldset styling */
+.woocommerce-account-content fieldset {
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  padding: 20px 15px;
+  margin: 20px 0;
+  background: var(--bg-light);
+}
+
+.woocommerce-account-content fieldset legend {
+  padding: 0 10px;
+  font-weight: 600;
+  color: var(--text-color);
+  background: var(--bg-white);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Account display name description */
+.woocommerce-account-content #account_display_name_description {
+  font-size: 12px;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 5px;
+  display: block;
+  line-height: 1.4;
+}
+
+/* Clear fix */
+.woocommerce-account-content .clear {
+  clear: both;
+}
+
+/* Form row layouts - MOBILE FIRST */
+.woocommerce-account-content .form-row-first,
+.woocommerce-account-content .form-row-last,
+.woocommerce-account-content .form-row-wide {
+  width: 100%;
+  float: none;
+}
+
+/* MOBILE ADDRESS PAGE STYLING */
+.woocommerce-account-content .woocommerce-Addresses {
+  display: block;
+  padding: 15px;
+}
+
+.woocommerce-account-content .woocommerce-Address {
+  background: var(--bg-white);
+  padding: 20px;
+  border-radius: var(--border-radius-small);
+  border: 2px solid var(--border-color);
+  box-shadow: var(--shadow-light);
+  margin-bottom: 20px;
+}
+
+.woocommerce-account-content .woocommerce-Address-title {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.woocommerce-account-content .woocommerce-Address-title h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.woocommerce-account-content .woocommerce-Address-title .edit {
+  background: var(--primary-color);
+  color: var(--text-white);
+  padding: 8px 16px;
+  border-radius: var(--border-radius-small);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.woocommerce-account-content .woocommerce-Address-title .edit:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.woocommerce-account-content .woocommerce-Address address {
+  font-style: normal;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+/* MOBILE DASHBOARD CONTENT */
+.woocommerce-account-content .woocommerce-MyAccount-content {
+  padding: 20px 15px;
+}
+
+.woocommerce-account-content .woocommerce-MyAccount-content p {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* MOBILE DOWNLOADS PAGE */
+.woocommerce-account-content .woocommerce-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: var(--bg-white);
+  border-radius: var(--border-radius-small);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  font-size: 14px;
+}
+
+.woocommerce-account-content .woocommerce-table th,
+.woocommerce-account-content .woocommerce-table td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  word-wrap: break-word;
+}
+
+.woocommerce-account-content .woocommerce-table th {
+  background: var(--bg-light);
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 12px;
+}
+
+.woocommerce-account-content .woocommerce-table tbody tr:hover {
+  background: var(--primary-light);
+}
+
+/* ==============================================
+   Orders List Layout - Mobile First
+   ============================================== */
+
+.orderallmaindiv {
+  padding: 0px 15px;
+  margin-top: 15px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.order-user-list {
+  margin-bottom: 20px;
+}
+
+.ordermainbox {
+  border: 1px solid #E8E8E8;
+  border-radius: 10px;
+  padding: 12px;
+  background: var(--bg-white);
+  box-shadow: var(--shadow-light);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.orderboxtop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(205, 205, 205, 0.3);
+}
+
+.orderidmain {
+  color: #D97706;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.order-date {
+  font-size: 12px;
+  font-weight: 500;
+  color: #717171;
+  margin-top: 8px;
+}
+
+.order-product-section {
+  padding: 12px 0px 0px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.order-product-section ~ .order-product-section {
+  border-top: 1px solid rgba(205, 205, 205, 0.3);
+  margin-top: 12px;
+}
+
+.order-content {
+  display: grid;
+  grid-template-columns: 1fr 2.64fr;
+  gap: 12px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.pimg {
+  width: 100%;
+  height: auto;
+  position: relative;
+  background: #e7e7e7;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.pimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pdetails {
+  width: 100%;
+  display: grid;
+  gap: 8px;
+  height: fit-content;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.pdetails h4,
+.pname {
+  font-size: 14px;
+  color: #212121;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.pname {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pname span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.order-product-details {
+  display: flex;
+  font-size: 12px;
+  gap: 10px;
+  color: rgba(148, 148, 148, 1);
+  text-transform: capitalize;
+  flex-wrap: wrap;
+}
+
+.order-product-details p {
+  line-height: 1.4;
+  margin: 0;
+}
+
+.qty,
+.pqty {
+  color: rgba(148, 148, 148, 1);
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.pprice {
+  margin-top: 10px;
+  color: var(--success-color);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.pprice-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p-status {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  text-transform: capitalize;
+}
+
+/* Status colors */
+.p-status {
+  color: #00A3FF;
+  border: 1px solid #00A3FF;
+  background: rgba(0, 163, 255, 0.1);
+}
+
+.p-status.status-completed,
+.p-status.status-delivered {
+  color: #00C853;
+  border: 1px solid #00C853;
+  background: rgba(0, 200, 83, 0.1);
+}
+
+.p-status.status-processing {
+  color: #00A3FF;
+  border: 1px solid #00A3FF;
+  background: rgba(0, 163, 255, 0.1);
+}
+
+.p-status.status-cancelled,
+.p-status.status-refunded {
+  color: #DC3545;
+  border: 1px solid #DC3545;
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.p-status .mainstatus {
+  text-transform: capitalize;
+}
+
+/* ==============================================
+   Order Details Page - Mobile Layout (FIXED)
+   ============================================== */
+
+.orderinfomain {
+  padding-bottom: 80px;
+  background: var(--bg-white);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.filter-button {
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.filteraccount {
+  width: 25px;
+  height: 25px;
+}
+
+/* ==============================================
+   Order Info Container - COMPLETELY FIXED
+   ============================================== */
+
+.orderinfo-container {
+  border-bottom: 1px solid #F5F5F5;
+  background: var(--bg-white);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.orderinfo {
+  padding: 15px;
+  background: var(--bg-white);
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  gap: 12px;
+}
+
+.orderinfo .pimg {
+  width: 35%;
+  min-height: 144px;
+  position: relative;
+  background: rgba(231, 231, 231, 1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.orderinfo .pdetails {
+  width: 65%;
+}
+
+.imagemain {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.imagemain img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.orderstatusimg {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  padding: 2px 6px;
+  background: var(--success-color);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.ordernumber {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(245, 245, 245, 0.8);
+  border-radius: 8px;
+  width: 100%;
+  border-top: 1px solid rgba(231, 231, 231, 1);
+}
+
+.ordernumber span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #212121;
+  white-space: nowrap;
+}
+
+.ordernumber img {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 0px !important;
+}
+
+.orderinfo .pdetails .pname {
+  font-size: 14px;
+  color: #212121;
+  font-weight: 500;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+.productcategoryname {
+  color: rgba(113, 113, 113, 1);
+  font-size: 11px;
+  margin-bottom: 6px;
+  text-transform: capitalize;
+  display: block;
+  font-weight: 400;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.orderinfo .order-product-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 12px;
+  gap: 6px;
+  color: rgba(148, 148, 148, 1);
+  text-transform: capitalize;
+  font-weight: 400;
+  flex-wrap: wrap;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.orderinfo .order-product-details p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.orderinfo .qty {
+  color: rgba(148, 148, 148, 1);
+  font-size: 11px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.orderinfo .pprice {
+  color: var(--success-color);
+  font-weight: 600;
+  font-size: 13px;
+  margin: 4px 0 0 0;
+}
+
+.trackid {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.trackingidheading {
+  font-weight: 600;
+  color: #434242;
+  font-size: 11px;
+}
+
+.ittracking {
+  font-weight: 600;
+  color: #666666;
+  font-size: 11px;
+  word-break: break-all;
+}
+
+.orderlocationstatus {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.statusmain {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+/* ==============================================
+   Order Tracking Section - FIXED
+   ============================================== */
+
+.orderprocerss {
+  padding: 15px;
+  border-bottom: 1px solid #F5F5F5;
+  background: var(--bg-white);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.productlivelocation {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 300px;
+  padding: 0 10px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.icon-item {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-white);
+  border: 2px solid var(--border-color);
+  z-index: 2;
+  transition: all 0.4s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.icon-item img {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+}
+
+.icon-item.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.icon-item.active img {
+  filter: brightness(0) invert(1);
+}
+
+.line {
+  flex: 1;
+  height: 2px;
+  background-color: #d3d3d3;
+  margin: 0 5px;
+  transition: all 0.4s ease;
+  min-width: 30px;
+}
+
+.line.active {
+  background: var(--primary-color);
+}
+
+.itemstatusmain {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 300px;
+  padding: 0 10px;
+}
+
+.itemstatusmain .p-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 9px;
+  color: #464646;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.itemstatusmain .p-status.active span {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.pstatusname {
+  text-transform: uppercase;
+  line-height: 1.2;
+  word-break: break-word;
+  text-align: center;
+}
+
+/* ==============================================
+   Shipping & Billing Sections - FIXED
+   ============================================== */
+
+.shippingaddress {
+  padding: 15px;
+  background: var(--bg-white);
+  border-bottom: 1px solid #F5F5F5;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.shippingmain {
+  background: #F5F5F5;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.headingshipping {
+  color: #343434;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.shippinmgaddress {
+  color: #5F5F5F;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.updatesend-to {
+  padding: 15px;
+  border-bottom: 1px solid #E6E6E6;
+  background: var(--bg-white);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.updatesend-to div img {
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0;
+}
+
+.upheading {
+  color: #343434;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 12px;
+}
+
+.updatesend-to div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+
+.updatesend-to div span {
+  font-size: 13px;
+  font-weight: normal;
+  color: #7F7F7F;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  flex: 1;
+  min-width: 0;
+}
+
+.price-section-account {
+  padding: 15px;
+  background: var(--bg-white);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.total-items {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.items-heading {
+  color: #212121;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+}
+
+.price-section {
+  padding: 12px 0 8px 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.mrp-text {
+  padding: 0 0 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.checkoutvalue {
+  font-size: 13px;
+  color: #212121;
+  font-weight: 400;
+}
+
+.checkout-shipping-text {
+  font-size: 13px;
+  color: #212121;
+  font-weight: 500;
+}
+
+.total-amount {
+  padding: 12px 0;
+  border-top: 1px solid rgba(240, 240, 240, 1);
+  border-bottom: 1px solid rgba(240, 240, 240, 1);
+}
+
+.total-amount .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.total-amount .inner span {
+  font-weight: 700;
+  font-size: 14px;
+  color: #212121;
+}
+
+/* ==============================================
+   Avatar Upload Section
+   ============================================== */
+
+.avatar-upload-section {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar-upload-input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.avatar-upload-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--primary-color);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  border: 2px solid white;
+}
+
+.avatar-upload-overlay svg {
+  width: 12px;
+  height: 12px;
+  fill: white;
+}
+
+/* Default avatar with better styling */
+.default-avatar {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  border: 2px solid #ddd;
+  padding: 0;
+  font-size: 32px;
+  text-transform: uppercase;
+  border-radius: 50%;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.user-avatar-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+/* ==============================================
+   Sticky Help Button - Fixed Color
+   ============================================== */
+
+.button-bottom-fixed,
+.help-button-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-bottom-fixed a,
+.help-button-container a,
+.btn-yellow {
+  width: 100%;
+  max-width: 500px; /* optional: to limit how wide the button grows on large screens */
+  background: var(--wilddragon-secondary-dark) !important;
+  color: #fff !important;
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  padding: 0.75em 1.5em;
+  border: 3px solid #000 !important;
+  border-radius: 0.5em;
+  box-shadow:
+    0.1em 0.1em 0 #000,
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.button-bottom-fixed a:hover,
+.help-button-container a:hover,
+.btn-yellow:hover {
+  background: var(--wilddragon-secondary-hover) !important;
+  color: #fff !important;
+  transform: translate(-0.05em, -0.05em);
+  box-shadow:
+    0.15em 0.15em 0 #000,
+    0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.button-bottom-fixed a:active,
+.help-button-container a:active,
+.btn-yellow:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow:
+    0.05em 0.05em 0 #000,
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button-bottom-fixed a::after,
+.help-button-container a::after,
+.btn-yellow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 0.5s ease;
+}
+
+.button-bottom-fixed a:hover::after,
+.help-button-container a:hover::after,
+.btn-yellow:hover::after {
+  left: 125%;
+}
+
+.button-bottom-fixed img,
+.help-button-container img {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* ==============================================
+   Filter Popup Styles - FIXED Z-INDEX
+   ============================================== */
+
+.filterpopup {
+  max-height: 0%;
+  transition: max-height 0.30s ease-out;
+  overflow: hidden;
+  display: none;
+  z-index: 10000; /* Increased z-index */
+}
+
+.filterpopup .fixed {
+  background-color: rgba(32, 32, 32, .7);
+  position: fixed;
+  inset: 0px;
+  z-index: 10001; /* Higher than sidebar */
+  overflow-y: overlay;
+}
+
+.popupmain {
+  max-height: 0;
+  visibility: hidden;
+  display: block;
+  box-sizing: border-box;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 10002; /* Highest z-index */
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px 8px 0px 0px;
+  transition: max-height 0.5s ease-in-out;
+  padding: 20px 15px;
+}
+
+.filterpopup.show .popupmain {
+  max-height: 600px;
+  visibility: visible;
+}
+
+.poptopheading {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.productstatuspop {
+  margin-top: 30px;
+}
+
+.fileterorder span {
+  font-size: 16px;
+  margin-bottom: 15px;
+  display: block;
+  color: #393939;
+}
+
+.allfilterpopup {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.allfilterpopup input[type="radio"] {
+  display: none;
+}
+
+.allfilterpopup span {
+  width: 90px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #AFAFAF;
+  margin-bottom: 0px;
+  padding: 5px;
+  border-radius: 20px;
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked + span {
+  background: var(--wilddragon-secondary-hover);
+  color: #ffffff;
+  border: 1px solid var(--wilddragon-secondary-hover);
+}
+
+.appleyandcancle {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.appleyandcancle span {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.appleyandcancle span.canclepop {
+  color: #B6B6B6;
+  border: 1px solid #B6B6B6;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.appleyandcancle span.applepop {
+  color: #ffffff;
+  border: 1px solid #B6B6B6;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  background: var(--wilddragon-secondary-hover);
+}
+
+/* ==============================================
+   Logout Popup Styles
+   ============================================== */
+
+.logout-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.popup-content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.popup-content h3 {
+  margin: 0 0 15px 0;
+  font-size: 20px;
+  color: #212121;
+}
+
+.popup-content p {
+  margin: 0 0 25px 0;
+  color: #666;
+  font-size: 16px;
+}
+
+.popup-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-cancel,
+.btn-confirm {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.btn-cancel:hover {
+  background: #e0e0e0;
+}
+
+.btn-confirm {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background: #c82333;
+}
+
+/* ==============================================
+   Loading States & Animations
+   ============================================== */
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top: 3px solid var(--text-white);
+  animation: spin 1s linear infinite;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==============================================
+   Status Styles - Enhanced with Purple Theme
+   ============================================== */
+
+.order-status,
+.statusmain {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.order-status.status-processing,
+.order-status.status-processing-payment {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border: 2px solid var(--primary-dark);
+}
+
+.order-status.status-completed,
+.order-status.status-delivered {
+  background-color: rgba(0, 155, 25, 0.1);
+  color: var(--success-color);
+  border: 2px solid var(--success-color);
+}
+
+.order-status.status-in-transit,
+.order-status.status-shipped {
+  background-color: rgba(0, 133, 255, 0.1);
+  color: #0085FF;
+  border: 2px solid #0085FF;
+}
+
+.order-status.status-rto,
+.order-status.status-failed,
+.order-status.status-cancelled {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--error-color);
+  border: 2px solid var(--error-color);
+}
+
+/* ==============================================
+   Write Review Styles
+   ============================================== */
+
+.write-review-main {
+  display: flex;
+}
+
+.write-review-popup {
+  display: flex;
+  gap: 2px;
+}
+
+/* ==============================================
+   DESKTOP LAYOUT FIXES
+   ============================================== */
+
+@media (min-width: 768px) {
+  /* Fix desktop layout structure */
+  .myaccount-order {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px;
+  }
+
+
+  .leftside-my-account {
+    width: 350px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  .userprofileleft,
+  .leftside-my-account .myaccountnavigationtab {
+    display: block;
+  }
+
+  .rightside-my-account {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+  }
+
+  /* Desktop WooCommerce content styling */
+  .woocommerce-account-content {
+    padding: 30px;
+  }
+
+  .woocommerce-account-content .woocommerce-form,
+  .woocommerce-account-content .woocommerce-address-fields,
+  .woocommerce-account-content .woocommerce-EditAccountForm {
+    padding: 30px;
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+  }
+
+  /* Desktop form layout improvements */
+  .woocommerce-account-content .form-row-first,
+  .woocommerce-account-content .form-row-last {
+    width: 48%;
+    display: inline-block;
+  }
+
+  .woocommerce-account-content .form-row-first {
+    margin-right: 4%;
+  }
+
+  .woocommerce-account-content .woocommerce-Addresses {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    display: grid;
+  }
+
+  /* Remove fixed positioning for help button on desktop */
+  .button-bottom-fixed,
+  .help-button-container {
+    position: static;
+    box-shadow: none;
+    margin-top: 20px;
+  }
+
+  .orderinfo {
+    padding: 25px;
+  }
+  
+  .orderinfo .pimg {
+    width: 35%;
+    min-height: 160px;
+  }
+  
+  .icon-item {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+  
+  .icon-item img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .itemstatusmain .p-status {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .leftside-my-account {
+    width: 380px;
+  }
+  
+  .orderinfo {
+    padding: 30px;
+  }
+  
+  .orderinfo .pimg {
+    width: 35%;
+    min-height: 180px;
+  }
+}
+
+/* ==============================================
+   MOBILE RESPONSIVE FIXES
+   ============================================== */
+
+@media (max-width: 480px) {
+  .woocommerce-account-content .woocommerce-form,
+  .woocommerce-account-content .woocommerce-address-fields,
+  .woocommerce-account-content .woocommerce-EditAccountForm {
+    padding: 15px;
+  }
+
+  .woocommerce-account-content input[type="text"],
+  .woocommerce-account-content input[type="email"],
+  .woocommerce-account-content input[type="password"],
+  .woocommerce-account-content input[type="tel"],
+  .woocommerce-account-content select,
+  .woocommerce-account-content textarea {
+    padding: 12px 14px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .woocommerce-account-content .woocommerce-Address-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .woocommerce-account-content .woocommerce-Address-title .edit {
+    align-self: flex-end;
+  }
+
+  .orderinfo {
+    padding: 12px;
+  }
+  
+  .orderinfo .pimg {
+    width: 35%;
+    min-height: 120px;
+  }
+  
+  .orderinfo .pdetails .pname {
+    font-size: 13px;
+  }
+  
+  .icon-container {
+    min-width: 280px;
+    padding: 0 5px;
+  }
+  
+  .icon-item {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+  }
+  
+  .icon-item img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .itemstatusmain .p-status {
+    font-size: 8px;
+    min-width: 50px;
+  }
+  
+  .itemstatusmain {
+    min-width: 280px;
+  }
+  
+  .line {
+    margin: 0 3px;
+    min-width: 20px;
+  }
+  
+  .top-heading-main {
+    padding: 15px 12px;
+  }
+  
+  .shippingaddress,
+  .updatesend-to,
+  .price-section-account {
+    padding: 12px;
+  }
+}
+
+/* ==============================================
+   Hide unwanted elements
+   ============================================== */
+
+#nasa-footer,
+#cart-sidebar,
+#nasa-wishlist-sidebar,
+#nasa-quickview-sidebar,
+.cart-close,
+.nasa-sidebar-close,
+.nasa-bottom-bar,
+.nasa-transition {
+  display: none !important;
+}
+
+/* ==============================================
+   Accessibility & Focus States
+   ============================================== */
+
+
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --text-color: #000;
+    --text-light: #333;
+    --border-color: #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .button-bottom-fixed,
+  .help-button-container,
+  .mobile-menu-toggle,
+  .edit-profile {
+    display: none !important;
+  }
+
+  body {
+    background: none;
+    padding: 0;
+  }
+
+  .leftside-my-account,
+  .rightside-my-account {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}
+
+/* ==============================================
+   Additional Inline Styles Support
+   ============================================== */
+
+/* These were inline style tags. Uses id+class to override almost everything */
+#style-LJt4L.style-LJt4L {
+  display: flex;
+  gap: 20px;
+  padding: 10px 25px 15px 25px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#style-qxoP2.style-qxoP2 {
+  margin-top: 0px;
+}
+
+#style-NZOEt.style-NZOEt {
+  background: transparent;
+  border: 1px solid rgba(39, 146, 245, 0.8);
+  color: rgba(39, 146, 245, 0.8);
+  text-transform: capitalize;
+}
+
+#style-EHx2a.style-EHx2a {
+  background: linear-gradient(90deg, rgba(255, 221, 0, 0.54) 0%, rgba(173, 173, 173, 0.54) 100%);
+  position: relative;
+}
+
+#style-9b4KT.style-9b4KT {
+  position: relative;
+}
+
+#style-27437.style-27437 {
+  color: rgba(175, 175, 175, 1);
+  padding: 5px 0 0;
+}
+
+#style-24P7T.style-24P7T {
+  color: rgba(175, 175, 175, 1);
+  padding: 5px 0 0;
+}
+
+#style-Mm4bx.style-Mm4bx {
+  color: rgba(175, 175, 175, 1);
+  padding: 5px 0 0;
+}
+
+#style-y6adL.style-y6adL {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#style-1jpRs.style-1jpRs {
+  color: rgba(0, 153, 34, 1);
+  font-size: 13px;
+}
+
+#style-sJvaa.style-sJvaa {
+  text-decoration-line: line-through;
+  color: rgba(0, 0, 0, 0.5);
+  margin-right: 2px;
+}
+
+.style-Kqo1G {
+  font-size: 14px;
+  color: #212121cd;
+  font-weight: 500;
+  line-height: 1.4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.style-tazxN {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* These were inline style tags. Uses id+class to override almost everything */
+#style-NgjaD.style-NgjaD {  
+   width:16px;  
+   height:16px;  
+}  
+#style-s67Un.style-s67Un {  
+   width:80px;  
+   height:80px;  
+   margin:auto;  
+   border:1px solid rgba(116, 116, 116, 1);  
+   padding:4%;  
+   font-size:46px;  
+   text-transform:capitalize;  
+   border-radius:50%;  
+   text-align:center;  
+   background:rgba(229, 229, 229, 1);  
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}  
+#style-A8vXQ.style-A8vXQ {  
+   width:25px;  
+   height:25px;  
+}  
+#style-RvecR.style-RvecR {  
+   width:20px;  
+   height:20px;  
+}  
+#style-Tl7lA.style-Tl7lA {  
+   width:25px;  
+   height:25px;  
+}  
+#style-FBt98.style-FBt98 {  
+   width:20px;  
+   height:20px;  
+}  
+#style-HprGb.style-HprGb {  
+   width:25px;  
+   height:25px;  
+}  
+#style-6fN9Z.style-6fN9Z {  
+   width:20px;  
+   height:20px;  
+}  
+#style-UXzjm.style-UXzjm {  
+   width:25px;  
+   height:25px;  
+}  
+#style-iV1PL.style-iV1PL {  
+   width:20px;  
+   height:20px;  
+}  
+#style-ndMoV.style-ndMoV {  
+   width:25px;  
+   height:25px;  
+}  
+#style-KXNzS.style-KXNzS {  
+   width:20px;  
+   height:20px;  
+}  
+#style-WMqao.style-WMqao {  
+   width:25px;  
+   height:25px;  
+}  
+#style-SzxAe.style-SzxAe {  
+   width:20px;  
+   height:20px;  
+}  
+#style-4rwki.style-4rwki {  
+   width:25px;  
+   height:25px;  
+}  
+#style-kSeEJ.style-kSeEJ {  
+   width:20px;  
+   height:20px;  
+}  
+#style-v1oDM.style-v1oDM {  
+   width:25px;  
+   height:25px;  
+}  
+#style-DJMU4.style-DJMU4 {  
+   width:20px;  
+   height:20px;  
+}
